@@ -46,3 +46,5 @@ This project will use a Windows 11 vm for blue team testing and Kali Linux vm fo
 - Windows ipconfig
 - Kali Running
 - Kali ifconfig
+
+-- Both Machines have the same network information. Due to them bot husing NAT have to make changes to correct.
