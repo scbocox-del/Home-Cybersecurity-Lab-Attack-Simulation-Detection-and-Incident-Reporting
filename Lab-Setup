@@ -1,50 +1,82 @@
-#Lab enviroment
+# Lab Environment
 
 ## Objective
 
-The objective of this is to set up the virtual machinces for this lab.
-This project will use a Windows 11 vm for blue team testing and Kali Linux vm for red team testing.
+The objective of this step was to set up the base virtual machines for the cybersecurity home lab. 
+This project uses a Windows 11 VM as the blue team endpoint and a Kali Linux VM as the red team testing machine.
 
 ## Virtual Machines
 
-|VM Name | Operating System | Role | CPU | Ram | Storage |
-|Sentinel| Windows 11 | Blue Team | 4 CPU | 5000mb | 80GB |
-|Raider| Kali Linux | Red Team | 4 CPU | 5000mb | 20GB |
+| VM Name | Operating System | Role | CPU | RAM | Storage |
+| Sentinel | Windows 11 | Blue team endpoint | 4 CPUs | 5000 MB | 80 GB |
+| Raider | Kali Linux | Red team testing machine | 4 CPUs | 5000 MB | 20 GB |
 
 ## Windows VM Setup
 
-- Download Windows ISO 
-- In VirtualBox select New
-- VM Name, mount ISO in ISO Image, verifiy OS and OS Version
-- set Username and password
-- Finish settings seen above
-- VM downloads and boots.
+The Windows 11 VM was created first and named **Sentinel**. 
+This system will be used as the blue team endpoint for monitoring, log collection, and later attack simulation testing.
 
+## Steps Completed
 
-## Kali Linux
+- Downloaded the Windows ISO.
+- Created a new virtual machine in VirtualBox.
+- Named the VM **Sentinel**.
+- Mounted the Windows ISO during VM creation.
+- Verified the operating system type and version.
+- Configured the VM user account and password.
+- Assigned 4 CPUs, 5000 MB of RAM, and 80 GB of storage.
+- Booted the VM successfully after installation.
 
-- Download Kali Linux ISO from kali.org
-- In VirtualBox select New
-- VM Name, mount ISO in ISO Image, OS selected Debian, OS Version Debian 64-bit
-- Settings seen above
-- Start machine 
-- Press ENTER on graphical interface 
-- configure +language, country, keyboard language, Hostname- Raider, Domain Name- lab.local, Username- raider, password, clock
-- Guided - use entire disk, all files, write changes to disk- yes
-- Software Desktop, Xfce, collection tools, top 10, default
-- GRUB Boot loader yes, choose Box for installation 
-- Succesful Boot 
+## Kali Linux VM Setup
+
+The Kali Linux VM was created and named **Raider**. 
+This system will be used as the red team testing machine for reconnaissance and controlled attack simulation inside the lab.
+
+## Steps Completed
+
+- Downloaded the Kali Linux ISO from kali.org.
+- Created a new virtual machine in VirtualBox.
+- Named the VM **Raider**.
+- Mounted the Kali Linux ISO during VM creation.
+- Selected Debian as the operating system type and Debian 64-bit as the version.
+- Started the VM and selected the graphical installation option.
+- Configured the language, country, keyboard layout, hostname, domain name, user account, password, and clock.
+- Set the hostname as **Raider**.
+- Set the domain name as **lab.local**.
+- Created the user account **raider**.
+- Selected guided disk partitioning using the entire disk.
+- Selected the Xfce desktop environment.
+- Selected the top 10 and default Kali tool collections.
+- Installed the GRUB boot loader.
+- Booted Kali Linux successfully after installation.
 
 ## Network Setup
 
-|Machine | IPv4 Address| Subnet | Default Gateway
-|Windows | 10.0.2.15 | 255.255.255.0 | 10.0.2.2
-|Kali | 10.0.2.15 | 255.255.255.0 | 10.0.2.2
+During initial setup, both VMs were configured using VirtualBox NAT networking.
 
-## Screenshots 
-- Windows Running
-- Windows ipconfig
-- Kali Running
+| Machine | IPv4 Address | Subnet Mask | Default Gateway | Network Mode |
+| Sentinel | 10.0.2.15 | 255.255.255.0 | 10.0.2.2 | NAT |
+| Raider | 10.0.2.15 | 255.255.255.0 | 10.0.2.2 | NAT |
+
+Both machines received the same NAT IP address because VirtualBox NAT places each VM behind its own isolated NAT network.
+This is acceptable for initial setup, but it is not ideal for attack simulation because the VMs may not be able to communicate directly with each other.
+The network configuration will be changed later to use a Host-only Adapter or Internal Network so each VM receives a separate private lab IP address.
+
+## Screenshots
+
+The following screenshots were added to the repository as evidence of the VM setup process:
+
+- Windows running
+- Windows ipconfig 
+- Kali running
 - Kali ifconfig
 
--- Both Machines have the same network information. Due to them bot husing NAT have to make changes to correct.
+## Issues Encountered
+
+During initial setup, both the Windows and Kali VMs displayed the same IPv4 address because they were both configured with VirtualBox NAT networking. 
+This will need to be changed before attack simulation begins so both VMs can communicate on the same private lab network.
+
+## Lessons Learned
+
+During this setup phase, I learned that VirtualBox NAT networking is useful for basic internet access during installation, but it is not the best option for a cybersecurity lab where VMs need to communicate with each other.
+For the next phase, I will configure a Host-only Adapter or Internal Network to create a more realistic isolated lab environment.
