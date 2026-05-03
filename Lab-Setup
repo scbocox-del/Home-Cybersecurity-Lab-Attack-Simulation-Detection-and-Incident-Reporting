@@ -1,0 +1,33 @@
+#Lab enviroment
+
+## Objective
+
+The objective of this is to set up the virtual machinces for this lab.
+This project will use a Windows 11 vm for blue team testing and Kali Linux vm for red team testing.
+
+## Virtual Machines
+
+|VM Name | Operating System | Role | CPU | Ram | Storage |
+|Sentinel| Windows 11 | Blue Team | 4 CPU | 5000mb | 80GB |
+|Raider| Kali Linux | Red Team | 3 CPU | 6000mb | 10GB |
+
+## Windows VM Setup
+
+- Downloaded Windows ISO 
+- In VirtualBox select New\
+- VM Name, mount ISO in ISO Image, verifiy OS and OS Version
+- set Username and password
+- Finish settings seen above
+- VM downloads and boots.
+
+
+## Kali Linux
+
+## Network Setup
+
+|Machine | IPv4 Address| IPv6 Address
+|Windows | 
+
+## Screenshots 
+-Windows Running
+-Windows IP
