@@ -9,12 +9,12 @@ This project will use a Windows 11 vm for blue team testing and Kali Linux vm fo
 
 |VM Name | Operating System | Role | CPU | Ram | Storage |
 |Sentinel| Windows 11 | Blue Team | 4 CPU | 5000mb | 80GB |
-|Raider| Kali Linux | Red Team | 3 CPU | 6000mb | 10GB |
+|Raider| Kali Linux | Red Team | 4 CPU | 5000mb | 20GB |
 
 ## Windows VM Setup
 
-- Downloaded Windows ISO 
-- In VirtualBox select New\
+- Download Windows ISO 
+- In VirtualBox select New
 - VM Name, mount ISO in ISO Image, verifiy OS and OS Version
 - set Username and password
 - Finish settings seen above
@@ -23,12 +23,26 @@ This project will use a Windows 11 vm for blue team testing and Kali Linux vm fo
 
 ## Kali Linux
 
+- Download Kali Linux ISO from kali.org
+- In VirtualBox select New
+- VM Name, mount ISO in ISO Image, OS selected Debian, OS Version Debian 64-bit
+- Settings seen above
+- Start machine 
+- Press ENTER on graphical interface 
+- configure +language, country, keyboard language, Hostname- Raider, Domain Name- lab.local, Username- raider, password, clock
+- Guided - use entire disk, all files, write changes to disk- yes
+- Software Desktop, Xfce, collection tools, top 10, default
+- GRUB Boot loader yes, choose Box for installation 
+- Succesful Boot 
+
 ## Network Setup
 
 |Machine | IPv4 Address| Subnet | Default Gateway
 |Windows | 10.0.2.15 | 255.255.255.0 | 10.0.2.2
-|Kali |
+|Kali | 10.0.2.15 | 255.255.255.0 | 10.0.2.2
 
 ## Screenshots 
--Windows Running
--Windows ipconfig
+- Windows Running
+- Windows ipconfig
+- Kali Running
+- Kali ifconfig
