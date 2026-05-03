@@ -25,9 +25,10 @@ This project will use a Windows 11 vm for blue team testing and Kali Linux vm fo
 
 ## Network Setup
 
-|Machine | IPv4 Address| IPv6 Address
-|Windows | 
+|Machine | IPv4 Address| Subnet | Default Gateway
+|Windows | 10.0.2.15 | 255.255.255.0 | 10.0.2.2
+|Kali |
 
 ## Screenshots 
 -Windows Running
--Windows IP
+-Windows ipconfig
