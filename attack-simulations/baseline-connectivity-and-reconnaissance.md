@@ -45,6 +45,11 @@ Raider was unable to ping Sentinel, most likely because Sentinel's Windows Defen
 
 - From the blue team perspective, this result shows that Sentinel was not openly exposing common TCP services during the scan. The filtered result is consistent with Windows Defender Firewall blocking or filtering inbound traffic.
 
+## Screenshots
+-nmap 192.168.56.103
+-nmap -sn 192.168.56.0/24
+-nmap -sV 192.168.56.103
+
 ## Issues Encountered
 -Raider was unable to ping Sentinel because inbound ICMP traffic was likely blocked by Windows Defender Firewall. This did not prevent the reconnaissance scans from identifying that Sentinel was online, but it did show that Windows was filtering some inbound traffic by default.
 
