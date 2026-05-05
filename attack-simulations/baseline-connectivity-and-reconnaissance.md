@@ -25,9 +25,9 @@ Raider was unable to ping Sentinel, most likely because Sentinel's Windows Defen
   - The Nmap scan confirmed that Sentinel was online
   - Nmap reported that all 1000 scanned TCP ports were filtered. No open ports were discovered during this baseline scan.
 - nmap -sn 192.168.56.0/24
-  -The scan confirmed that both lab machines were connected to the same Host-only network. Sentinel and Raider were both visible on the 192.168.56.0/24 network, which means the lab network is ready for           controlled reconnaissance testing.
+  - The scan confirmed that both lab machines were connected to the same Host-only network. Sentinel and Raider were both visible on the 192.168.56.0/24 network, which means the lab network is ready for    controlled reconnaissance testing.
 - nmap -sV 192.168.56.103
-  -Nmap reported that all 1000 scanned TCP ports were filtered. This means Sentinel was reachable on the Host-only network, but Windows Defender Firewall or local filtering prevented Nmap from identifying       open services.
+  - Nmap reported that all 1000 scanned TCP ports were filtered. This means Sentinel was reachable on the Host-only network, but Windows Defender Firewall or local filtering prevented Nmap from identifying open services.
 
 
 ## Results
