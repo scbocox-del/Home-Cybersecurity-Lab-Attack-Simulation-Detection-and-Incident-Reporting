@@ -46,15 +46,15 @@ Raider was unable to ping Sentinel, most likely because Sentinel's Windows Defen
 - From the blue team perspective, this result shows that Sentinel was not openly exposing common TCP services during the scan. The filtered result is consistent with Windows Defender Firewall blocking or filtering inbound traffic.
 
 ## Screenshots
--nmap 192.168.56.103
--nmap -sn 192.168.56.0/24
--nmap -sV 192.168.56.103
+- nmap 192.168.56.103
+- nmap -sn 192.168.56.0/24
+- nmap -sV 192.168.56.103
 
 ## Issues Encountered
--Raider was unable to ping Sentinel because inbound ICMP traffic was likely blocked by Windows Defender Firewall. This did not prevent the reconnaissance scans from identifying that Sentinel was online, but it did show that Windows was filtering some inbound traffic by default.
+- Raider was unable to ping Sentinel because inbound ICMP traffic was likely blocked by Windows Defender Firewall. This did not prevent the reconnaissance scans from identifying that Sentinel was online, but it did show that Windows was filtering some inbound traffic by default.
 
 ## Lessons Learned
--This phase showed that basic connectivity was working between the virtual machines on the Host-only network. It also showed that Windows Defender Firewall can limit what an attacker sees during basic reconnaissance. Even though Sentinel was online, Nmap did not identify any open services because the scanned TCP ports were filtered.
+- This phase showed that basic connectivity was working between the virtual machines on the Host-only network. It also showed that Windows Defender Firewall can limit what an attacker sees during basic reconnaissance. Even though Sentinel was online, Nmap did not identify any open services because the scanned TCP ports were filtered.
 
 ## Next Steps
--The next step is to improve blue team visibility by enabling or reviewing Windows security logs, firewall logs, and later installing additional monitoring tools.
+- The next step is to improve blue team visibility by enabling or reviewing Windows security logs, firewall logs, and later installing additional monitoring tools.
