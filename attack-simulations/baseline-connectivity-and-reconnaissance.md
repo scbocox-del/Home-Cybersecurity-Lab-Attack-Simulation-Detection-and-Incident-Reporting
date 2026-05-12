@@ -2,7 +2,7 @@
 
 ## Objective
 
-The objective of this phase was to verify communication between the lab machines and perform basic reconnaissance from the red team machine against the blue team endpoint. This step helps confirm that the lab network is working before moving into more advanced attack simulation and detection testing.
+- The objective of this phase was to verify communication between the lab machines and perform basic reconnaissance from the red team machine against the blue team endpoint. This step helps confirm that the lab network is working before moving into more advanced attack simulation and detection testing.
 
 ## Lab Systems
 
@@ -18,7 +18,7 @@ The objective of this phase was to verify communication between the lab machines
 | Ping Raider from Sentinel | Sentinel | 192.168.56.104 | Successful |
 | Ping Sentinel from Raider | Raider | 192.168.56.103 | Failed |
 
-Raider was unable to ping Sentinel, most likely because Sentinel's Windows Defender Firewall was blocking inbound ICMP traffic. Sentinel was able to ping Raider, which confirmed that both machines were connected to the same Host-only network.
+- Raider was unable to ping Sentinel, most likely because Sentinel's Windows Defender Firewall was blocking inbound ICMP traffic. Sentinel was able to ping Raider, which confirmed that both machines were connected to the same Host-only network.
 
 ## Reconnaissance Test
 - nmap 192.168.56.103
