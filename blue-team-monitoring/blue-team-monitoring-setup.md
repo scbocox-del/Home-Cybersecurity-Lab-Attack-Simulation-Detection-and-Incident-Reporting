@@ -27,15 +27,43 @@ Sentinel is generating Windows security audit logs that can be used later for mo
 
 - Dropped packet logging was enabled so blocked traffic from Raider can be recorded during future reconnaissance and attack simulation testing. This will help show when Sentinel filters or blocks inbound traffic.
 
+## Firewall Log Verification
+
+- Firewall logging was tested after dropped packet logging was enabled on Sentinel. A Nmap scan was run from Raider against Sentinel to generate traffic that could be reviewed in the Windows firewall log.
+
+- To generate traffic:
+  - Ran `nmap -Pn -p 135,139,445 192.168.56.103` from Raider.
+  - The scan targeted common Windows ports on Sentinel.
+  - Raider's Host-only IP address was `192.168.56.105`.
+  - Sentinel's Host-only IP address was `192.168.56.103`.
+
+- To review the firewall log:
+  - Opened Notepad as administrator on Sentinel.
+  - Opened `C:\Windows\System32\LogFiles\Firewall\pfirewall.log`.
+  - Searched for Raider's IP address, `192.168.56.105`.
+  - Confirmed dropped TCP traffic from Raider to Sentinel.
+
+The firewall log showed dropped TCP traffic from `192.168.56.105` to `192.168.56.103` on ports `135`, `139`, and `445`. This confirmed that Windows Defender Firewall logging is working.
+
 ## Screenshots
 
 - Windows Event Viewer
 - Windows Defender Firewall
 - Firewall Logging Settings
-
+- Firewall Log
 
 ## Issues Encountered
 
+- While reviewing the Windows firewall log, the `pfirewall.log` file could not be opened with normal user permissions. This happened because the log is stored in a protected Windows system directory. To resolve this, Notepad was opened as administrator, and the log file was opened from `C:\Windows\System32\LogFiles\Firewall`.
+
+- Another issue encountered was Raider's Host-only adapter losing its IPv4 address. The adapter was active, but it did not show a `192.168.56.104` address at first. This was corrected by running `sudo dhcpcd eth1` in Raider, which gave Raider the Host-only IP address `192.168.56.105`.
+
 ## Lessons Learned
 
+- Windows Event Viewer and Windows Defender Firewall provide local monitoring before adding tools like Sysmon, Wazuh, or Splunk. Sentinel was recording Security events, including successful logon events, and Windows Defender Firewall was active on all network profiles.
+
+- I also learned that firewall logging can provide useful evidence of blocked traffic. After enabling dropped packet logging, Sentinel recorded dropped TCP traffic from Raider to Sentinel on ports 135, 139, and 445. This helped connect red team scanning activity to blue team evidence on the Windows endpoint.
+
 ## Next Steps
+
+- The next step is to install and configure Sysmon on Sentinel. 
