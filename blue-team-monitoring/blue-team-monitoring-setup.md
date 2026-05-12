@@ -2,6 +2,8 @@
 
 ## Objective
 
+- The objective of this phase is to prepare Sentinel for basic blue team monitoring before running more advanced attack simulations. This includes reviewing Windows Security logs, confirming Windows Defender Firewall status, enabling firewall logging, and verifying that blocked traffic from Raider can be recorded in the Windows firewall log.
+
 ## Windows Security Logs
 
 - Windows Event Viewer was reviewed on Sentinel to confirm that security events were being recorded.
