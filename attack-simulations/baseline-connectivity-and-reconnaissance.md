@@ -29,12 +29,6 @@
 - nmap -sV 192.168.56.103
   - Nmap reported that all 1000 scanned TCP ports were filtered. This means Sentinel was reachable on the Host-only network, but Windows Defender Firewall or local filtering prevented Nmap from identifying open services.
 
-
-## Results
-- Document whether Sentinel was discovered.
-- Document any open ports found.
-- Add screenshot names or evidence notes.
-
 ## Red Team Notes
 - From the attacker perspective, the scan confirmed that the target was active but did not reveal open services. Additional scanning or firewall changes would be needed before testing service-specific activity.
 
